@@ -48,4 +48,4 @@ router.post('/authenticate', async (req, res) => {
     res.send({ user, token });
 });
 
-module.exports = app => app.use('/auth', router);
+module.exports = app => app.use('/api/auth', router);
