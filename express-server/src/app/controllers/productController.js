@@ -36,6 +36,7 @@ router.post('/', async (req, res) => {
 
         return res.send({ product });
     } catch (error) {
+        console.log(error);
         return apiError(res, 'Error creating product');
     }
 });

@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  express-server:
+    build: express-server
+    ports:
+      - 3000:3000
+    volumes: 
+      - ./express-server:/home/node/app
+    depends_on:
+      - mean_mongo
+
+  mean_mongo:
+    image: mongo:5.0
+    restart: always
+    volumes:
+      - ./.docker/dbdata:/data/db
+    environment:
+          - MONGO_INITDB_ROOT_USERNAME=root
+          - MONGO_INITDB_ROOT_PASSWORD=root
+          - MONGO_INITDB_DATABASE=mean-db
+          
+  
